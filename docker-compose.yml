@@ -1,0 +1,13 @@
+# https://docs.docker.com/compose/gettingstarted/
+version: '3'
+
+services:
+  db:
+    image: "postgres:11.2"
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+
