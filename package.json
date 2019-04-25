@@ -22,6 +22,8 @@
   },
   "scripts": {
     "build": "tsc",
+    "docker:build": "docker build -t swashcap/sup-prisma:latest .",
+    "docker:run": "docker run -it swashcap/sup-prisma",
     "format": "prettier --write '*.{js,json}' 'src/**/*.ts'",
     "start": "node src/index.js"
   }
