@@ -2,15 +2,19 @@
   "name": "sup-prisma",
   "version": "1.0.0",
   "description": "A look at Prisma, the database platform",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "git@github.com:swashcap/sup-prisma.git",
   "author": "Cory Reed",
   "license": "Apache-2.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "dotenv-safe": "^6.1.0",
+    "koa": "^2.7.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "@types/koa": "^2.0.48",
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
@@ -18,6 +22,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write '*.{js,json}'"
+    "format": "prettier --write '*.{js,json}' 'src/**/*.ts'",
+    "start": "node src/index.js"
   }
 }
