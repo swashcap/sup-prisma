@@ -9,5 +9,7 @@ app.use(ctx => {
 })
 
 if (require.main === module) {
-  app.listen(process.env.PORT)
+  app.listen(process.env.PORT, () => {
+    console.log(`Server listening at localhost:${process.env.PORT}`)
+  })
 }
