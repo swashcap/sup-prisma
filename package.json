@@ -1,0 +1,10 @@
+{
+  "name": "sup-prisma",
+  "version": "1.0.0",
+  "description": "A look at Prisma, the database platform",
+  "main": "index.js",
+  "repository": "git@github.com:swashcap/sup-prisma.git",
+  "author": "Cory Reed",
+  "license": "Apache-2.0",
+  "private": true
+}
