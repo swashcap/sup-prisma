@@ -1,9 +1,31 @@
 # https://docs.docker.com/compose/gettingstarted/
+# https://www.prisma.io/docs/get-started/01-setting-up-prisma-new-database-JAVASCRIPT-a002/
 version: '3'
 
 services:
   db:
-    image: "postgres:11.2"
+    environment:
+      POSTGRES_PASSWORD: prisma
+      POSTGRES_USER: prisma
+    image: "postgres:10.3"
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  prisma:
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        databases:
+          default:
+            connector: postgres
+            host: db
+            password: prisma
+            port: 5432
+            user: prisma
+    image: "prismagraphql/prisma:1.31"
+    ports:
+      - "4466:4466"
+    restart: always
   web:
     build: .
     depends_on:
@@ -11,3 +33,5 @@ services:
     ports:
       - "3000:3000"
 
+volumes:
+  postgres:
