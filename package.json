@@ -9,19 +9,27 @@
   "private": true,
   "dependencies": {
     "dotenv-safe": "^6.1.0",
-    "koa": "^2.7.0"
+    "graphql": "^14.2.1",
+    "koa": "^2.7.0",
+    "prisma-client-lib": "^1.30.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "@types/graphql": "^14.2.0",
     "@types/koa": "^2.0.48",
+    "@types/ws": "^6.0.1",
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.17.0",
+    "prisma": "^1.30.2",
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "run-s build:prisma build:ts",
+    "build:prisma": "prisma generate",
+    "build:ts": "tsc",
     "docker:build": "docker build -t swashcap/sup-prisma:latest .",
     "docker:run": "docker run -it swashcap/sup-prisma",
     "format": "prettier --write '*.{js,json}' 'src/**/*.ts'",
