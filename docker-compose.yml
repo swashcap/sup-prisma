@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_PASSWORD: prisma
       POSTGRES_USER: prisma
-    image: "postgres:10.3"
+    image: "postgres:11.2"
     restart: always
     volumes:
       - postgres:/var/lib/postgresql/data
@@ -26,12 +26,6 @@ services:
     ports:
       - "4466:4466"
     restart: always
-  web:
-    build: .
-    depends_on:
-      - db
-    ports:
-      - "3000:3000"
 
 volumes:
   postgres:
