@@ -1,5 +1,5 @@
 {
-  "ignore": ["generated/**/*", "src/**/*.js"],
+  "ignore": ["generated/**/*", "scripts/**/*.js", "src/**/*.js"],
   "linters": {
     "*.{js,json,ts}": ["yarn format", "git add"]
   }
